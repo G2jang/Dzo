@@ -21,11 +21,26 @@ public class PuzzleGame extends JFrame{
 }
 
 class View extends JPanel{
+	public int[][] puzzle = {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15},{16,17,18,19,20},{21,22,23,24,25}};
+	
 	public View() {
-		
+	
 	}
 	
 	public void paint(Graphics g) {
-		
+		paintComponent(g);
+		int size = 100;
+		for(int x=0;x<5;x++) {
+			for(int y=0;y<5;y++) {
+				String str = Integer.toString(puzzle[x][y]);
+				int dx = x*size;
+				int dy = y*size;
+				g.drawRect(dx, dy, size, size);
+				
+				if(0 != puzzle[x][y]) {
+					g.drawString(str, dy+size/2, dx+size/2);
+				}
+			}
+		}
 	}
 }
