@@ -27,6 +27,55 @@ class View extends JPanel{
 	
 	}
 	
+	public void moving(int x, int y) {
+		try {
+			if((y-1) >=0) {
+				if(puzzle[y-1][x] == 0) {
+					puzzle[y-1][x] = puzzle[y][x];
+					puzzle[y][x] =0;
+					
+					repaint();
+					
+					return;
+				}
+			}
+			if((y+1)<=2) {
+				if(puzzle[y+1][x] == 0) {
+					puzzle[y+1][x] = puzzle[y][x];
+					puzzle[y][x] = 0;
+					
+					repaint();
+					
+					return;
+				}
+			}
+			
+			if((x+1) <= 2) {
+				if(puzzle[y][x+1] == 0) {
+					puzzle[y][x+1] = puzzle[y][x];
+					puzzle[y][x] = 0;
+					
+					repaint();
+					
+					return;
+				}
+			}
+			
+			if((x-1) >= 0) {
+				if(puzzle[y][x-1] == 0) {
+					puzzle[y][x-1] = puzzle[y][x];
+					puzzle[y][x] = 0;
+					
+					repaint();
+					
+					return;
+				}
+			}
+		} catch(Exception e) {
+			System.out.println(e.toString());
+		}
+	}
+	
 	public void paint(Graphics g) {
 		paintComponent(g);
 		int size = 100;
