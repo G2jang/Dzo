@@ -2,6 +2,8 @@ import java.awt.Graphics;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import java.awt.event.*;
+import java.awt.*;
 
 public class PuzzleGame extends JFrame{
 	View m_view;
@@ -20,11 +22,31 @@ public class PuzzleGame extends JFrame{
 
 }
 
-class View extends JPanel{
+class View extends JPanel implements MouseListener{
 	public int[][] puzzle = {{1,2,3,4,5},{6,7,8,9,10},{11,12,13,14,15},{16,17,18,19,20},{21,22,23,24,25}};
 	
 	public View() {
-	
+		addMouseListener(this);
+	}
+	public void check()
+	{
+		int x,y;
+		int num = 1;
+		for(x = 0; x<5;x++) {
+			for(y = 0;y<5;y++) {
+				if(num!=puzzle[x][y])
+				{
+					return;
+				}
+				if(num == 8)
+				{
+					num =0;
+				}
+				else {num++;}
+			}
+		}
+		JOptionPane.showMessageDialog(this, "Game win","GAMELOSE!",JOptionPane.INFORMATION_MESSAGE);
+		System.exit(0);
 	}
 	
 	public void moving(int x, int y) {
@@ -75,6 +97,11 @@ class View extends JPanel{
 			System.out.println(e.toString());
 		}
 	}
+	
+	public void mouseRelease(MouseEvent e) {}
+	public void mouseExited(MouseEvent e) {}
+	public void mouseEntered(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {}
 	
 	public void paint(Graphics g) {
 		paintComponent(g);
