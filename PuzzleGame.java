@@ -49,6 +49,14 @@ class View extends JPanel implements MouseListener{
 		System.exit(0);
 	}
 	
+	public void mousePressed(MouseEvent e) {
+		int size = 100;
+		int x= e.getX()/size;
+		int y= e.getY()/size;
+		moving(x,y);
+		check();
+	}
+	
 	public void moving(int x, int y) {
 		try {
 			if((y-1) >=0) {
