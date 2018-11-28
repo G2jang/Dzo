@@ -103,7 +103,7 @@ class View extends JPanel implements MouseListener{
 		}
 	}
 	
-	public void mouseRelease(MouseEvent e) {}
+	public void mouseReleased(MouseEvent e) {}
 	public void mouseExited(MouseEvent e) {}
 	public void mouseEntered(MouseEvent e) {}
 	public void mouseClicked(MouseEvent e) {}
