@@ -55,7 +55,7 @@ import javax.swing.JPanel;
   				else {num++;} 
   			} 
   		} 
-  		JOptionPane.showMessageDialog(this, "Game win","GAMELOSE!",JOptionPane.INFORMATION_MESSAGE); 
+  		JOptionPane.showMessageDialog(this, "Game win","GAMEEND!",JOptionPane.INFORMATION_MESSAGE); 
   		System.exit(0); 
   	} 
   	
